@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    NIGHT RACER - Maven configuration
+
+    This file tells Maven:
+    1. Which Java version to use
+    2. Which JavaFX libraries the game needs
+    3. How to launch the JavaFX application
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Maven project model version -->
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!-- Basic project information -->
+    <groupId>dev.portfolio</groupId>
+    <artifactId>night-racer</artifactId>
+    <version>1.0</version>
+
+
+    <!-- =========================================================
+         PROJECT SETTINGS
+         ========================================================= -->
+
+    <properties>
+
+        <!-- Make sure files are treated as UTF-8 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Compile the project using Java 17 -->
+        <maven.compiler.release>17</maven.compiler.release>
+
+        <!-- JavaFX version used by the project -->
+        <javafx.version>21.0.4</javafx.version>
+
+    </properties>
+
+
+    <!-- =========================================================
+         DEPENDENCIES
+         ========================================================= -->
+
+    <dependencies>
+
+        <!--
+            JavaFX Controls
+
+            Provides the JavaFX UI framework used by the game.
+        -->
+        <dependency>
+
+            <groupId>org.openjfx</groupId>
+
+            <artifactId>javafx-controls</artifactId>
+
+            <version>${javafx.version}</version>
+
+        </dependency>
+
+
+        <!--
+            JavaFX Media
+
+            Used for sound effects and audio playback.
+
+            Our game uses this for:
+            - Coin sound
+            - Crash sound
+            - Start sound
+            - Pause sound
+        -->
+        <dependency>
+
+            <groupId>org.openjfx</groupId>
+
+            <artifactId>javafx-media</artifactId>
+
+            <version>${javafx.version}</version>
+
+        </dependency>
+
+    </dependencies>
+
+
+    <!-- =========================================================
+         BUILD CONFIGURATION
+         ========================================================= -->
+
+    <build>
+
+        <plugins>
+
+
+            <!--
+                Maven Compiler Plugin
+
+                Compiles our Java source code.
+            -->
+            <plugin>
+
+                <groupId>org.apache.maven.plugins</groupId>
+
+                <artifactId>maven-compiler-plugin</artifactId>
+
+                <version>3.13.0</version>
+
+            </plugin>
+
+
+            <!--
+                JavaFX Maven Plugin
+
+                Allows us to launch the game using:
+
+                    mvn clean javafx:run
+            -->
+            <plugin>
+
+                <groupId>org.openjfx</groupId>
+
+                <artifactId>javafx-maven-plugin</artifactId>
+
+                <version>0.0.8</version>
+
+
+                <configuration>
+
+                    <!--
+                        Main class of our game.
+
+                        This corresponds to:
+
+                            public class Main
+                    -->
+                    <mainClass>Main</mainClass>
+
+                </configuration>
+
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
